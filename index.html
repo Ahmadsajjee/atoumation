@@ -15,15 +15,12 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
         }
         
         .container {
-            max-width: 900px;
-            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
         .header {
@@ -45,47 +42,59 @@
         
         .workflows-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
         }
         
         .workflow-card {
             background: white;
-            border-radius: 12px;
+            border-radius: 15px;
             padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             transition: transform 0.3s, box-shadow 0.3s;
             text-align: center;
+            position: relative;
         }
         
         .workflow-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
         }
         
         .workflow-icon {
-            font-size: 3em;
+            font-size: 3.5em;
             margin-bottom: 15px;
         }
         
         .workflow-card h2 {
             color: #333;
             margin-bottom: 10px;
-            font-size: 1.5em;
+            font-size: 1.6em;
         }
         
         .workflow-card p {
             color: #666;
             font-size: 0.95em;
             margin-bottom: 20px;
-            min-height: 40px;
-            line-height: 1.4;
+            min-height: 50px;
+            line-height: 1.5;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #e8f0fe;
+            color: #1967d2;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
         
         .btn-run {
             display: inline-block;
-            padding: 12px 24px;
+            padding: 12px 28px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             text-decoration: none;
@@ -95,6 +104,7 @@
             cursor: pointer;
             border: none;
             font-size: 1em;
+            margin: 5px;
         }
         
         .btn-run:hover {
@@ -102,27 +112,71 @@
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
         
-        .btn-run:active {
-            transform: scale(0.98);
+        .featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .featured h2 {
+            color: white;
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        
+        .featured p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+        
+        .featured .btn-run {
+            background: white;
+            color: #667eea;
+            font-weight: 700;
+            padding: 15px 40px;
+            font-size: 1.1em;
+        }
+        
+        .featured .btn-run:hover {
+            background: #f0f0f0;
+            transform: scale(1.08);
         }
         
         .info-box {
             background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 30px;
+            border-radius: 15px;
+            padding: 30px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
             color: #333;
+            margin-top: 40px;
         }
         
         .info-box h3 {
             color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .info-box ol, .info-box ul {
+            margin-left: 25px;
+            line-height: 2;
+        }
+        
+        .info-box li {
             margin-bottom: 10px;
         }
         
-        .info-box ol {
-            margin-left: 20px;
-            line-height: 1.8;
+        .status-box {
+            background: #f0f9ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
         }
         
         .repo-link {
@@ -143,55 +197,97 @@
             .workflows-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .featured {
+                grid-column: auto;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>🤖 Workflow Dashboard</h1>
-            <p>Manage your GitHub Actions workflows easily</p>
+            <h1>🤖 Automation Dashboard</h1>
+            <p>Your GitHub Actions Workflow Manager</p>
         </div>
         
         <div class="workflows-grid">
+            <!-- FEATURED: Test Email First -->
+            <div class="featured">
+                <h2>✉️ Send Test Email Now</h2>
+                <p>Click below to send a test email to your Gmail inbox</p>
+                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/test-email.yml" target="_blank" class="btn-run">🚀 Send Test Email</a>
+            </div>
+            
             <!-- Hello World Workflow -->
             <div class="workflow-card">
                 <div class="workflow-icon">👋</div>
                 <h2>Hello World</h2>
-                <p>Simple workflow that prints a hello message to the logs</p>
-                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/hello.yml" target="_blank" class="btn-run">View Workflow</a>
+                <span class="badge">Auto Trigger</span>
+                <p>Simple test workflow that prints a hello message to the logs on every push</p>
+                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/hello.yml" target="_blank" class="btn-run">View Logs</a>
             </div>
             
             <!-- Send Email Workflow -->
             <div class="workflow-card">
                 <div class="workflow-icon">📧</div>
-                <h2>Send Email</h2>
-                <p>Send emails with custom subject and body to any recipient</p>
-                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/send-email.yml" target="_blank" class="btn-run">Run Email Workflow</a>
+                <h2>Send Custom Email</h2>
+                <span class="badge">Manual Trigger</span>
+                <p>Send emails with custom recipient, subject, and body to anyone</p>
+                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/send-email.yml" target="_blank" class="btn-run">Send Email</a>
             </div>
             
             <!-- Create Folder Workflow -->
             <div class="workflow-card">
                 <div class="workflow-icon">📁</div>
                 <h2>Create Folder</h2>
+                <span class="badge">Manual Trigger</span>
                 <p>Create a new folder in your repository with a custom name</p>
-                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/create-folder.yml" target="_blank" class="btn-run">Run Folder Workflow</a>
+                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/create-folder.yml" target="_blank" class="btn-run">Create Folder</a>
             </div>
         </div>
         
         <div class="info-box">
-            <h3>📖 How to Use</h3>
+            <h3>📖 How to Use Email Workflows</h3>
+            
+            <div class="status-box">
+                <strong>✅ Status:</strong> Email credentials are configured and ready to use!
+            </div>
+            
+            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">Quick Start - Send Test Email:</h4>
             <ol>
-                <li>Click on any workflow button above</li>
-                <li>Click the <strong>"Run workflow"</strong> button on GitHub</li>
-                <li>Fill in the required inputs (email, folder name, etc.)</li>
-                <li>Click <strong>"Run workflow"</strong> to execute</li>
-                <li>Check the workflow logs to see results</li>
+                <li>Click the <strong>"Send Test Email Now"</strong> button above</li>
+                <li>Click <strong>"Run workflow"</strong> button on GitHub</li>
+                <li>Click <strong>"Run workflow"</strong> again to confirm</li>
+                <li>Wait 5-10 seconds for the email to arrive in your Gmail inbox</li>
+                <li>Check your Gmail - you should see an email from your account!</li>
             </ol>
-            <p style="margin-top: 15px;">
-                <strong>📍 Full Repository:</strong> 
-                <a href="https://github.com/Ahmadsajjee/atoumation" target="_blank" class="repo-link">Ahmadsajjee/atoumation</a>
-            </p>
+            
+            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">Send Custom Emails:</h4>
+            <ol>
+                <li>Click the <strong>"Send Email"</strong> workflow button</li>
+                <li>Click <strong>"Run workflow"</strong> on GitHub</li>
+                <li>Fill in:
+                    <ul>
+                        <li><strong>Recipient email:</strong> Where to send (any email address)</li>
+                        <li><strong>Email subject:</strong> What's the subject</li>
+                        <li><strong>Email body:</strong> What's the message</li>
+                    </ul>
+                </li>
+                <li>Click <strong>"Run workflow"</strong></li>
+                <li>Email will be sent in seconds!</li>
+            </ol>
+            
+            <div class="status-box" style="margin-top: 25px;">
+                <strong>💡 Tip:</strong> Emails are sent from your Gmail account. Check spam folder if you don't see the test email.
+            </div>
+            
+            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">Links:</h4>
+            <ul>
+                <li><a href="https://github.com/Ahmadsajjee/atoumation" target="_blank" class="repo-link">View Repository</a></li>
+                <li><a href="https://github.com/Ahmadsajjee/atoumation/actions" target="_blank" class="repo-link">View All Actions</a></li>
+                <li><a href="https://github.com/Ahmadsajjee/atoumation/settings/secrets/actions" target="_blank" class="repo-link">Manage Secrets</a></li>
+            </ul>
         </div>
     </div>
 </body>
