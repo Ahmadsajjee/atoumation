@@ -1,0 +1,33 @@
+name: Test Email - Send Now
+
+on:
+  workflow_dispatch:
+
+jobs:
+  send_test_email:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send Test Email to Gmail
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.GMAIL_ADDRESS }}
+        password: ${{ secrets.GMAIL_APP_PASSWORD }}
+        subject: "✅ GitHub Actions Test Email"
+        to: ${{ secrets.GMAIL_ADDRESS }}
+        from: ${{ secrets.GMAIL_ADDRESS }}
+        body: |
+          Hello! 👋
+          
+          This is a test email from your GitHub Actions workflow.
+          
+          If you are reading this, it means everything is working perfectly!
+          
+          ✅ GitHub Account: Ahmadsajjee
+          ✅ Repository: atoumation
+          ✅ Workflow: Test Email
+          
+          ---
+          Sent from GitHub Actions Automation
