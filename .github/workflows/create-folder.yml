@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
     inputs:
       folder_name:
-        description: 'Enter folder name to create'
+        description: "Enter folder name to create"
         required: true
-        default: 'my-folder'
+        default: "my-folder"
 
 jobs:
   create_folder:
