@@ -19,7 +19,7 @@
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         
@@ -77,7 +77,7 @@
             color: #666;
             font-size: 0.95em;
             margin-bottom: 20px;
-            min-height: 50px;
+            min-height: 60px;
             line-height: 1.5;
         }
         
@@ -90,6 +90,11 @@
             font-size: 0.8em;
             font-weight: 600;
             margin-bottom: 15px;
+        }
+        
+        .badge.new {
+            background: #fff3cd;
+            color: #856404;
         }
         
         .btn-run {
@@ -212,11 +217,11 @@
         </div>
         
         <div class="workflows-grid">
-            <!-- FEATURED: Test Email First -->
+            <!-- FEATURED: Send to Group -->
             <div class="featured">
-                <h2>✉️ Send Test Email Now</h2>
-                <p>Click below to send a test email to your Gmail inbox</p>
-                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/test-email.yml" target="_blank" class="btn-run">🚀 Send Test Email</a>
+                <h2>👥 Send Email to Group</h2>
+                <p>Send emails to multiple people at once - including Dania!</p>
+                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/send-email-group.yml" target="_blank" class="btn-run">🚀 Send Group Email</a>
             </div>
             
             <!-- Hello World Workflow -->
@@ -224,16 +229,25 @@
                 <div class="workflow-icon">👋</div>
                 <h2>Hello World</h2>
                 <span class="badge">Auto Trigger</span>
-                <p>Simple test workflow that prints a hello message to the logs on every push</p>
+                <p>Simple test workflow that prints a hello message on every push</p>
                 <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/hello.yml" target="_blank" class="btn-run">View Logs</a>
             </div>
             
-            <!-- Send Email Workflow -->
+            <!-- Test Email -->
+            <div class="workflow-card">
+                <div class="workflow-icon">✉️</div>
+                <h2>Send Test Email</h2>
+                <span class="badge">Manual Trigger</span>
+                <p>Send a test email to yourself to verify everything works</p>
+                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/test-email.yml" target="_blank" class="btn-run">Send Test</a>
+            </div>
+            
+            <!-- Send Custom Email Workflow -->
             <div class="workflow-card">
                 <div class="workflow-icon">📧</div>
                 <h2>Send Custom Email</h2>
                 <span class="badge">Manual Trigger</span>
-                <p>Send emails with custom recipient, subject, and body to anyone</p>
+                <p>Send emails with custom recipient, subject, and body</p>
                 <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/send-email.yml" target="_blank" class="btn-run">Send Email</a>
             </div>
             
@@ -248,41 +262,42 @@
         </div>
         
         <div class="info-box">
-            <h3>📖 How to Use Email Workflows</h3>
+            <h3>📖 How to Send Emails to Your Group</h3>
             
             <div class="status-box">
-                <strong>✅ Status:</strong> Email credentials are configured and ready to use!
+                <strong>✅ Ready to Use!</strong> All email workflows are configured and ready.
             </div>
             
-            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">Quick Start - Send Test Email:</h4>
+            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">🚀 Send Email to Group (Including Dania):</h4>
             <ol>
-                <li>Click the <strong>"Send Test Email Now"</strong> button above</li>
-                <li>Click <strong>"Run workflow"</strong> button on GitHub</li>
-                <li>Click <strong>"Run workflow"</strong> again to confirm</li>
-                <li>Wait 5-10 seconds for the email to arrive in your Gmail inbox</li>
-                <li>Check your Gmail - you should see an email from your account!</li>
-            </ol>
-            
-            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">Send Custom Emails:</h4>
-            <ol>
-                <li>Click the <strong>"Send Email"</strong> workflow button</li>
+                <li>Click the <strong>"Send Email to Group"</strong> button above</li>
                 <li>Click <strong>"Run workflow"</strong> on GitHub</li>
-                <li>Fill in:
-                    <ul>
-                        <li><strong>Recipient email:</strong> Where to send (any email address)</li>
-                        <li><strong>Email subject:</strong> What's the subject</li>
-                        <li><strong>Email body:</strong> What's the message</li>
+                <li>Fill in the email list:
+                    <ul style="margin-top: 10px;">
+                        <li>Default: <code>dania.haj.qassem@gmail.com</code></li>
+                        <li>Or add more: <code>dania.haj.qassem@gmail.com, email2@gmail.com, email3@gmail.com</code></li>
+                        <li>(Separate emails with commas)</li>
                     </ul>
                 </li>
+                <li>Fill in subject and message</li>
                 <li>Click <strong>"Run workflow"</strong></li>
-                <li>Email will be sent in seconds!</li>
+                <li>Email will be sent to all recipients in seconds!</li>
             </ol>
             
+            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">📝 All Available Workflows:</h4>
+            <ul>
+                <li><strong>Send Email to Group</strong> - Multiple recipients ⭐ NEW</li>
+                <li><strong>Send Test Email</strong> - Test to yourself</li>
+                <li><strong>Send Custom Email</strong> - Single recipient</li>
+                <li><strong>Create Folder</strong> - Create folders in repo</li>
+                <li><strong>Hello World</strong> - Auto-run on push</li>
+            </ul>
+            
             <div class="status-box" style="margin-top: 25px;">
-                <strong>💡 Tip:</strong> Emails are sent from your Gmail account. Check spam folder if you don't see the test email.
+                <strong>💡 Tip:</strong> Emails are sent from your Gmail account to any email addresses you specify. You can add or remove recipients anytime!
             </div>
             
-            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">Links:</h4>
+            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">🔗 Quick Links:</h4>
             <ul>
                 <li><a href="https://github.com/Ahmadsajjee/atoumation" target="_blank" class="repo-link">View Repository</a></li>
                 <li><a href="https://github.com/Ahmadsajjee/atoumation/actions" target="_blank" class="repo-link">View All Actions</a></li>
