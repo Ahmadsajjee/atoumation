@@ -1,0 +1,40 @@
+name: Send Email to Group
+
+on:
+  workflow_dispatch:
+    inputs:
+      email_list:
+        description: "Email addresses (comma-separated)"
+        required: true
+        default: "dania.haj.qassem@gmail.com"
+      email_subject:
+        description: "Email subject"
+        required: true
+        default: "Hello from GitHub Actions"
+      email_body:
+        description: "Email body/message"
+        required: true
+        default: "This is a message from your automation system"
+
+jobs:
+  send_group_email:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Send Email to Group
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{ secrets.GMAIL_ADDRESS }}
+        password: ${{ secrets.GMAIL_APP_PASSWORD }}
+        subject: ${{ github.event.inputs.email_subject }}
+        to: ${{ github.event.inputs.email_list }}
+        from: ${{ secrets.GMAIL_ADDRESS }}
+        body: |
+          ${{ github.event.inputs.email_body }}
+
+          ---
+          Sent to: ${{ github.event.inputs.email_list }}
+          From: GitHub Actions Automation
+          Time: ${{ github.event.head_commit.timestamp }}
