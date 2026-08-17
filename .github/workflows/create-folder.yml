@@ -1,0 +1,30 @@
+name: Create Folder
+
+on:
+  workflow_dispatch:
+    inputs:
+      folder_name:
+        description: 'Enter folder name to create'
+        required: true
+        default: 'my-folder'
+
+jobs:
+  create_folder:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Create folder
+      run: mkdir -p "folders/${{ github.event.inputs.folder_name }}"
+
+    - name: Add README to folder
+      run: echo "Created folder: ${{ github.event.inputs.folder_name }}" > "folders/${{ github.event.inputs.folder_name }}/README.md"
+
+    - name: Commit and push
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git add .
+        git commit -m "Create folder: ${{ github.event.inputs.folder_name }}"
+        git push
