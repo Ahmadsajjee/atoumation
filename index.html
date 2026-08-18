@@ -92,9 +92,14 @@
             margin-bottom: 15px;
         }
         
-        .badge.new {
+        .badge.scheduled {
             background: #fff3cd;
             color: #856404;
+        }
+        
+        .badge.new {
+            background: #d4edda;
+            color: #155724;
         }
         
         .btn-run {
@@ -194,6 +199,13 @@
             text-decoration: underline;
         }
         
+        .workflow-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
@@ -213,17 +225,26 @@
     <div class="container">
         <div class="header">
             <h1>🤖 Automation Dashboard</h1>
-            <p>Your GitHub Actions Workflow Manager</p>
+            <p>Your Complete GitHub Actions Workflow Manager</p>
         </div>
         
         <div class="workflows-grid">
-            <!-- FEATURED: Send to Group -->
+            <!-- FEATURED: Daily Report -->
             <div class="featured">
+                <h2>📊 Daily Report Sent at 10 AM</h2>
+                <p>Automated daily emails with repository statistics and workflow status</p>
+                <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/daily-report.yml" target="_blank" class="btn-run">📋 View Daily Reports</a>
+            </div>
+            
+            <!-- FEATURED: Send to Group -->
+            <div class="featured" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
                 <h2>👥 Send Email to Group</h2>
                 <p>Send emails to multiple people at once - including Dania!</p>
                 <a href="https://github.com/Ahmadsajjee/atoumation/actions/workflows/send-email-group.yml" target="_blank" class="btn-run">🚀 Send Group Email</a>
             </div>
-            
+        </div>
+        
+        <div class="workflows-grid">
             <!-- Hello World Workflow -->
             <div class="workflow-card">
                 <div class="workflow-icon">👋</div>
@@ -262,39 +283,42 @@
         </div>
         
         <div class="info-box">
-            <h3>📖 How to Send Emails to Your Group</h3>
+            <h3>📊 Daily Report Features</h3>
             
             <div class="status-box">
-                <strong>✅ Ready to Use!</strong> All email workflows are configured and ready.
+                <strong>✅ Active!</strong> Daily reports are scheduled to send at 10:00 AM every morning to you and Dania.
             </div>
             
-            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">🚀 Send Email to Group (Including Dania):</h4>
-            <ol>
-                <li>Click the <strong>"Send Email to Group"</strong> button above</li>
-                <li>Click <strong>"Run workflow"</strong> on GitHub</li>
-                <li>Fill in the email list:
-                    <ul style="margin-top: 10px;">
-                        <li>Default: <code>dania.haj.qassem@gmail.com</code></li>
-                        <li>Or add more: <code>dania.haj.qassem@gmail.com, email2@gmail.com, email3@gmail.com</code></li>
-                        <li>(Separate emails with commas)</li>
-                    </ul>
-                </li>
-                <li>Fill in subject and message</li>
-                <li>Click <strong>"Run workflow"</strong></li>
-                <li>Email will be sent to all recipients in seconds!</li>
-            </ol>
-            
-            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">📝 All Available Workflows:</h4>
+            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">📋 What's in the Daily Report:</h4>
             <ul>
-                <li><strong>Send Email to Group</strong> - Multiple recipients ⭐ NEW</li>
-                <li><strong>Send Test Email</strong> - Test to yourself</li>
-                <li><strong>Send Custom Email</strong> - Single recipient</li>
-                <li><strong>Create Folder</strong> - Create folders in repo</li>
-                <li><strong>Hello World</strong> - Auto-run on push</li>
+                <li>📅 Current date and time</li>
+                <li>✅ Number of commits today</li>
+                <li>📝 Total commits in repository</li>
+                <li>📁 Total files in repository</li>
+                <li>⭐ List of all active workflows</li>
+                <li>🔗 Quick links to your dashboard and actions</li>
             </ul>
             
+            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">⏰ Schedule:</h4>
+            <ul>
+                <li><strong>Time:</strong> 10:00 AM (UTC)</li>
+                <li><strong>Frequency:</strong> Every day</li>
+                <li><strong>Recipients:</strong> You + Dania</li>
+                <li><strong>Auto-run:</strong> Yes (no manual trigger needed)</li>
+            </ul>
+            
+            <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">🔧 All Available Workflows:</h4>
+            <ol>
+                <li><strong>📊 Daily Report</strong> - 10 AM every morning (Scheduled) ⭐ NEW</li>
+                <li><strong>👥 Send Email to Group</strong> - Multiple recipients (Manual)</li>
+                <li><strong>✉️ Send Test Email</strong> - Test to yourself (Manual)</li>
+                <li><strong>📧 Send Custom Email</strong> - Single recipient (Manual)</li>
+                <li><strong>📁 Create Folder</strong> - Create folders in repo (Manual)</li>
+                <li><strong>👋 Hello World</strong> - Auto-run on push (Auto)</li>
+            </ol>
+            
             <div class="status-box" style="margin-top: 25px;">
-                <strong>💡 Tip:</strong> Emails are sent from your Gmail account to any email addresses you specify. You can add or remove recipients anytime!
+                <strong>💡 Pro Tip:</strong> The daily report automatically calculates repository statistics and sends them to you every morning at 10 AM. Perfect for tracking progress and staying informed!
             </div>
             
             <h4 style="color: #667eea; margin-top: 25px; margin-bottom: 15px;">🔗 Quick Links:</h4>
